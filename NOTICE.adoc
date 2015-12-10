@@ -1,0 +1,10 @@
+= INSERTNAMEHERE - Licensing NOTICE
+:numbered:
+
+Copyright (C) 2015, Lukas Jendele & Ondrej Skopek.
+All rights reserved.
+
+All Authors and Contributors are named in the link:AUTHORS.html[AUTHORS] file.
+
+== Used libraries
+=== INSERTNAMEHERE Project
