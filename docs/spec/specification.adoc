@@ -11,112 +11,112 @@ a manuálneho hľadania na mape.
 == Základná funkcionalita
 
 * Vyhľadávanie najrýchlejších spojov z reálneho bodu do bodu,
-nie zo zastávky do zastávky (občas je napríklad rýchlejsie preisť kúsok pešo)
-** Zohľadnovanie rychlosti chodze, ak mam zo sebou bicykel, taktiez.
-* Preferencne kriteria: volba typu dopravneho prostriedku, preist cez dany bod,
-optimalizacia vzdialenosti alebo casu, ...
-* Funkcna navigacna aplikacia na Android/IOS (Praha + CR)
-* Poskytnutie roznych variant ciest uzivatelovi (moze si vybrat)
-* Modularny navrh: casti systemu by sa mali dat menit bez vacsich zmien aplikacie
-(zmena poskytovatela mapovych/transportacnych dat, zmena vyhladavacieho algoritmu, ...)
+nie zo zastávky do zastávky (občas je napríklad rýchlejšie preisť kúsok pešo)
+** Zohľadnenie rýchlosti chôdze, bicyklu, ...
+* Preferenčné kritéria: voľba typu dopravného prostriedku, prestupného bodu,
+optimalizácia vzdialenosti/času, ...
+* Mobilná navigačná aplikácia na Android/iOS (pre Prahu + ČR)
+* Poskytnutie rôznych variant ciest užívateľovi
+* Modulárny návrh: časti systému by sa mali dať meniť bez väčších zmien aplikácie
+(zmena poskytovateľa mapových/transportných dát, zmena vyhľadávacieho algoritmu, ...)
 
-== Časový plán
+== Časový odhad
 
-=== Data representation (I, II)
+Každá z oblastí projektu je rozdelená na fáze (rímske číslice). U každej oblasti je špecifikované, čo by sme chceli stihnúť v základnej verzí, a čo sa nám zdá nad rámec rozsahu (bonus). Pravdepodobne je aj samotný základ dostatočne časovo a rozsahovo náročný.
+
+=== Reprezentace dat (I, II)
 
 I.
 
-* Zistit data source (CHAPS)
-** Specifikace
-** Licence?
-** Parsing
-** Times/distances?
-** Location
-*** Reach? Do we include non-Prague areas?
-** Updaty dat (obchazky, ...)
+* Zdroj dát (CHAPS)
+* Špecifikácia
+* Licencia?
+* Parsing dát
+* Datové položky: zastávky, linky, časy, vzdialenosti, ...
+* Dosah? Aj mimo Prahy?
+* Časté aktualizácie dát (obchádzky, zmeny liniek, ...)
 
 II.
 
-* Mapove data
-** Online vs. offline?
-*** Online
-**** API
-**** Mapy.cz: http://api.mapy.cz/
-*** Offline
-** Offline
-*** Specifikace
-*** Source?
+* Mapové podklady
+* Online vs. offline?
+* Online
+** Mapy.cz API: http://api.mapy.cz/
+** Google API
+* Offline
+** Specifikace
+** Zdroje?
+*** OpenStreetMaps?
 
 III.
 
-* On-the-fly transportation data
-* Traffic data
+* Aktulní pozice autobusů a tramvají (pokud poskytovány)
+* Dopravní situace
 
 IV.
 
-* Forecasting ...
+* Předpověď dopravní situace, pozice vozidla, ...
 
-=== Core (I,II + Bonus: III)
+=== Jádro (I, II + Bonus: III, IV)
 
 I.
 
-* Data structures
-* Internal representation
-* *Extensibility*
-* *Modularity*
-* Output format/data structure
+* Datové struktury
+* Vnitřní reprezentace dat
+* Rozšířitelnost (jiní poskytovatelé dat)
+* Modelový návrh zaručující nezávislost komponent
+* Formát výstupu/výstupní API
 
 II.
 
-* Algorithm
-** Shortest/Fastest
-** Efficient!
-** Rozne shortest paths boli significantly* different
-** (and correct)
+* Algoritmická část
+** Hledání nejkratší cesty v grafu (případně více “nejkratších”)
+** Důraz na efektivitu
+** Možnost výběru alternativního spojení 
+** Odladění správnosti algoritmu
 
 III.
 
-* Nastavitelna rychlost (chuze, bike, ...)
-* Chuze
-* Bike
-* Auto
+* Nastavitelná rychlost (chůze, jízdy na kole, ...)
+* Chůze
+* Jízda na kole
+* Možnost popojet autem
 * ...
 
 IV.
 
-* Parallel Algorithm
+* Paralelizace algoritmu
 
 === App -- GUI (I, II + Bonus: III)
 
 I.
 
-* Text format output (TXT/JSON/XML/neco)
+* Textový formát výstupu  (TXT/JSON/XML/...) a jeho špecifikácia
 
 II. Xamarin Forms
 
 * (iOS &) Android
-* UI aka IDOS/Pubtran
-** Notifikacie
-** Export do calendar
-** Historie hledani
-** Tabs!
-** Lokalizacia (CZ, SK, DE, default: EN)
-** ...
+* UI (podobne ako IDOS/Pubtran/...)
+** Notifikácie
+** Export do kalendára
+** Históriá hľadania
+** Možnosť mať viacero tabov s vyhľadanými spojmi
+** Lokalizácia (CZ, SK, DE, EN, ...)
 
 III.
 
-* Mapova vizualizacia (nic detailne) 
-* Aktualni poloha uzivatela
-* Aktualni poloha vozidla
+* Mapová vizualizácia (approx.) 
+* Aktuálna poloha užívateľa
+* Aktuálna poloha vozidla
 
 === Testing/tweaking (I,II)
 
 I.
 
-* Continuously:
-** unit tests
-** integration tests
-** hallway testing
+* Průběžně:
+** Unit testy
+** Integration testy
+** Testovaní na náhodných uživatelích (hallway testing)
 
 II.
 
@@ -137,8 +137,10 @@ III.
 
 * iOS App Store
 
-== Planning
+== Plánovanie práce
 
-* Work distribution
-** GitHub + GitHub issues + GitHub graphs
-** `git log`
+* Distribúcia práce
+** Manažovanie kódu: Vlastné súkromné GitHub repo
+** Delenie práce a plánovanie: GitHub issues + milestones
+** Vizualizácia práce: GitHub graphs a `git log`
+*** Bude součást závěrečného protokolu (prezentace)
