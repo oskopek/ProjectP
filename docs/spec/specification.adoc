@@ -1,0 +1,144 @@
+= ProjectP -- Zápočtový program, Jazyk C# a platforma .NET + Pokročilé programování pro .NET I
+Lukáš Jendele <lukas.jendele+mff@gmail.com>, Ondrej Škopek <oskopek@matfyz.cz>
+
+== Stručný popis
+
+ProjectP je tá navigačná aplikácia, ktorú ste vždy chceli mať:
+ukáže Vám reálne najrýchlejšiu cestu tam, kam idete
+-- bez nutnosti nekonečného nastovavania parametrov spojov
+a manuálneho hľadania na mape.
+
+== Základná funkcionalita
+
+* Vyhľadávanie najrýchlejších spojov z reálneho bodu do bodu,
+nie zo zastávky do zastávky (občas je napríklad rýchlejsie preisť kúsok pešo)
+** Zohľadnovanie rychlosti chodze, ak mam zo sebou bicykel, taktiez.
+* Preferencne kriteria: volba typu dopravneho prostriedku, preist cez dany bod,
+optimalizacia vzdialenosti alebo casu, ...
+* Funkcna navigacna aplikacia na Android/IOS (Praha + CR)
+* Poskytnutie roznych variant ciest uzivatelovi (moze si vybrat)
+* Modularny navrh: casti systemu by sa mali dat menit bez vacsich zmien aplikacie
+(zmena poskytovatela mapovych/transportacnych dat, zmena vyhladavacieho algoritmu, ...)
+
+== Časový plán
+
+=== Data representation (I, II)
+
+I.
+
+* Zistit data source (CHAPS)
+** Specifikace
+** Licence?
+** Parsing
+** Times/distances?
+** Location
+*** Reach? Do we include non-Prague areas?
+** Updaty dat (obchazky, ...)
+
+II.
+
+* Mapove data
+** Online vs. offline?
+*** Online
+**** API
+**** Mapy.cz: http://api.mapy.cz/
+*** Offline
+** Offline
+*** Specifikace
+*** Source?
+
+III.
+
+* On-the-fly transportation data
+* Traffic data
+
+IV.
+
+* Forecasting ...
+
+=== Core (I,II + Bonus: III)
+
+I.
+
+* Data structures
+* Internal representation
+* *Extensibility*
+* *Modularity*
+* Output format/data structure
+
+II.
+
+* Algorithm
+** Shortest/Fastest
+** Efficient!
+** Rozne shortest paths boli significantly* different
+** (and correct)
+
+III.
+
+* Nastavitelna rychlost (chuze, bike, ...)
+* Chuze
+* Bike
+* Auto
+* ...
+
+IV.
+
+* Parallel Algorithm
+
+=== App -- GUI (I, II + Bonus: III)
+
+I.
+
+* Text format output (TXT/JSON/XML/neco)
+
+II. Xamarin Forms
+
+* (iOS &) Android
+* UI aka IDOS/Pubtran
+** Notifikacie
+** Export do calendar
+** Historie hledani
+** Tabs!
+** Lokalizacia (CZ, SK, DE, default: EN)
+** ...
+
+III.
+
+* Mapova vizualizacia (nic detailne) 
+* Aktualni poloha uzivatela
+* Aktualni poloha vozidla
+
+=== Testing/tweaking (I,II)
+
+I.
+
+* Continuously:
+** unit tests
+** integration tests
+** hallway testing
+
+II.
+
+* In-the-field testing
+* User testing
+
+=== Deploy (I,II + Bonus: III)
+
+I.
+
+* Continuous integration
+
+II.
+
+* Google Play Store
+
+III.
+
+* iOS App Store
+
+== Planning
+
+* Work distribution
+** GitHub + GitHub issues + GitHub graphs
+** `git log`
