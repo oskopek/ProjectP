@@ -1,5 +1,6 @@
-= ProjectP -- Zápočtový program, Jazyk C# a platforma .NET + Pokročilé programování pro .NET I
+= ProjectP -- Zápočtový program
 Lukáš Jendele <lukas.jendele+mff@gmail.com>, Ondrej Škopek <oskopek@matfyz.cz>
+Jazyk C# a platforma .NET + Pokročilé programování pro .NET I
 
 == Stručný popis
 
@@ -42,7 +43,7 @@ II.
 * Online vs. offline?
 * Online
 ** Mapy.cz API: http://api.mapy.cz/
-** Google API
+** Google Maps API
 * Offline
 ** Specifikace
 ** Zdroje?
@@ -127,7 +128,7 @@ II.
 
 I.
 
-* Continuous integration
+* Continuous integration & delivery (as soon as possible)
 
 II.
 
@@ -140,7 +141,7 @@ III.
 == Plánovanie práce
 
 * Distribúcia práce
-** Manažovanie kódu: Vlastné súkromné GitHub repo
+** Manažovanie kódu: vlastný súkromný GitHub repozitár
 ** Delenie práce a plánovanie: GitHub issues + milestones
 ** Vizualizácia práce: GitHub graphs a `git log`
 *** Bude součást závěrečného protokolu (prezentace)
