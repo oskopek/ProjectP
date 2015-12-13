@@ -18,10 +18,17 @@ script: "mvn clean verify -P$MAVEN_PROFILES"
 install: /bin/true
 
 notifications:
+  webhooks:
+    urls:
+      - "https://webhooks.gitter.im/e/21bf881f1dee495c0e29"
+    on_success: always
+    on_failure: always
+    on_start: never
   irc:
     channels:
       - "irc.freenode.org#carcv"
     on_success: always
     on_failure: always
+    on_start: never
     template:
       - "%{repository} (%{branch}:%{commit} by %{author}): %{message} (%{build_url})"
